@@ -6,3 +6,6 @@ __pycache__/
 
 # Ignoroidaan .pytest_cache-hakemisto
 .pytest_cache/
+
+.coverage
+htmlcov/
