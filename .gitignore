@@ -1,0 +1,8 @@
+# Ignoroidaan kaikki .tmp-päätteiset tiedostot
+*.tmp
+
+# Ignoroidaan __pycache__-hakemistot
+__pycache__/
+
+# Ignoroidaan .pytest_cache-hakemisto
+.pytest_cache/
