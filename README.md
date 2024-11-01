@@ -1,2 +1,2 @@
 # ohtuvarasto
-Ohjelmistotuotanto kurssi
+https://github.com/SalonenMika/ohtuvarasto/workflows/CI/badge.svg
