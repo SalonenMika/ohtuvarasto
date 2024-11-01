@@ -66,7 +66,7 @@ class TestVarasto(unittest.TestCase):
     def test_str_metodi(self):
         """Testaa, että __str__() metodi palauttaa oikean merkkijonon."""
         self.varasto.lisaa_varastoon(5)
-        expected_str = "saldo = 5.0, vielä tilaa 5.0"
+        expected_str = "saldo = 5, vielä tilaa 5"
         self.assertEqual(str(self.varasto), expected_str)
 
     def test_konstruktori_negatiivinen_tilavuus(self):
