@@ -1,26 +1,43 @@
+"""Varaston hallinnan päämoduuli."""
 class Varasto:
+    """Varasto luokka."""
     def __init__(self, tilavuus, alku_saldo = 0):
+        """
+        Alustaa varaston tilavuuden ja saldon.
+
+        Args:
+            tilavuus (float): Varaston tilavuus, joka ei voi olla negatiivinen.
+            alku_saldo (float): Varaston alkusaldo, joka ei voi olla negatiivinen
+            eikä ylittää tilavuutta.
+        """
         if tilavuus > 0.0:
             self.tilavuus = tilavuus
         else:
-            # virheellinen, nollataan
             self.tilavuus = 0.0
 
         if alku_saldo < 0.0:
-            # virheellinen, nollataan
             self.saldo = 0.0
         elif alku_saldo <= tilavuus:
-            # mahtuu
             self.saldo = alku_saldo
         else:
-            # täyteen ja ylimäärä hukkaan!
             self.saldo = tilavuus
 
-    # huom: ominaisuus voidaan myös laskea. Ei tarvita erillistä kenttää viela_tilaa tms.
     def paljonko_mahtuu(self):
+        """
+        Laskee jäljellä olevan tilan varastossa.
+
+        Returns:
+            float: Jäljellä oleva tila.
+        """
         return self.tilavuus - self.saldo
 
     def lisaa_varastoon(self, maara):
+        """
+        Lisää varastoon tuotteita, jos mahdollista.
+
+        Args:
+            maara (float): Lisättävä määrä, joka ei voi olla negatiivinen.
+        """
         if maara < 0:
             return
         if maara <= self.paljonko_mahtuu():
@@ -29,6 +46,15 @@ class Varasto:
             self.saldo = self.tilavuus
 
     def ota_varastosta(self, maara):
+        """
+        Ottaa varastosta tuotteita, jos mahdollista.
+
+        Args:
+            maara (float): Otettava määrä, joka ei voi olla negatiivinen.
+
+        Returns:
+            float: Todellinen määrä, joka otettiin varastosta.
+        """
         if maara < 0:
             return 0.0
         if maara > self.saldo:
@@ -42,6 +68,10 @@ class Varasto:
         return maara
 
     def __str__(self):
+        """
+        Palauttaa varaston tilan merkkijonoesityksenä.
+
+        Returns:
+            str: Varaston saldo ja jäljellä oleva tila.
+        """
         return f"saldo = {self.saldo}, vielä tilaa {self.paljonko_mahtuu()}"
-    
-    """"dsa"""
